@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tliberse <tliberse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/13 12:03:30 by tliberse          #+#    #+#             */
-/*   Updated: 2024/10/15 15:46:54 by tliberse         ###   ########.fr       */
+/*   Created: 2024/10/15 16:00:10 by tliberse          #+#    #+#             */
+/*   Updated: 2024/10/15 17:01:42 by tliberse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_tolower(char *str)
+void	*memset(void *s, int c, size_t n)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (str[i])
+	while (i < n)
 	{
-		if (str[i] >= 'A' && str[i] <= 'Z')
-			str[i] += 32;
+		((unsigned char *)s)[i] = (unsigned char )c;
 		i++;
 	}
-	return (str);
+	return (s);
 }
 
-// int main(void)
+// int main() 
 // {
-// 	char str[] = "SALUT";
-// 	printf ("%s\n", ft_tolower(str));
-// 	return (0);
+//     char str[50] = "Hello, World!";
+//     printf("Before memset: %s\n", str);
+//     memset(str, '*', 5);
+//     printf("After memset: %s\n", str);
+//     return 0;
 // }

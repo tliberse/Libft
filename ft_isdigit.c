@@ -1,14 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tliberse <tliberse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 11:00:47 by tliberse          #+#    #+#             */
-/*   Updated: 2024/10/14 12:07:50 by tliberse         ###   ########.fr       */
+/*   Updated: 2024/10/15 15:34:55 by tliberse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isdigit(int c)
 {
@@ -16,8 +18,6 @@ int	ft_isdigit(int c)
 		return (0);
 	return (1);
 }
-
-// #include <stdio.h>
 
 // int main(void)
 // {

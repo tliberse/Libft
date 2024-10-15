@@ -6,21 +6,21 @@
 /*   By: tliberse <tliberse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 17:54:40 by tliberse          #+#    #+#             */
-/*   Updated: 2024/08/13 13:27:20 by tliberse         ###   ########.fr       */
+/*   Updated: 2024/10/15 15:41:03 by tliberse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_strlen(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (str[i])
 		i++;
 	return (i);
 }
-
-// #include <stdio.h>
 
 // int main(void)
 // {

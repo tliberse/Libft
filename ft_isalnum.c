@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tliberse <tliberse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/13 12:03:30 by tliberse          #+#    #+#             */
-/*   Updated: 2024/10/15 15:46:54 by tliberse         ###   ########.fr       */
+/*   Created: 2024/10/15 14:44:06 by tliberse          #+#    #+#             */
+/*   Updated: 2024/10/15 15:36:29 by tliberse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_tolower(char *str)
+int	ft_isalnum(char c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] >= 'A' && str[i] <= 'Z')
-			str[i] += 32;
-		i++;
-	}
-	return (str);
+	if ((c > 47 && c < 58) || (c > 64 && c < 91) || (c > 96 && c < 123))
+		return (1);
+	return (0);
 }
-
 // int main(void)
 // {
-// 	char str[] = "SALUT";
-// 	printf ("%s\n", ft_tolower(str));
+// 	char c = '5';
+// 	printf("%d, %d\n", c, ft_isalnum(c));
 // 	return (0);
 // }

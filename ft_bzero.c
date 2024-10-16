@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tliberse <tliberse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/15 16:00:10 by tliberse          #+#    #+#             */
-/*   Updated: 2024/10/16 14:40:49 by tliberse         ###   ########.fr       */
+/*   Created: 2024/10/16 14:22:41 by tliberse          #+#    #+#             */
+/*   Updated: 2024/10/16 14:52:09 by tliberse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
 	size_t	i;
 
 	i = 0;
 	while (i < n)
 	{
-		((unsigned char *)s)[i] = (unsigned char )c;
+		((unsigned char *)s)[i] = '\0';
 		i++;
 	}
-	return (s);
 }
 
 // int main() 
 // {
 //     char s[] = "Hello, World!";
-//     printf("Before memset: %s\n", s);
-//     ft_memset(s, '*', 5);
-//     printf("After memset: %s\n", s);
+//     printf("Before bzero: %s\n", s);
+//     ft_bzero(s, 5);
+//     printf("After bzero: %s\n", s);
 //     return 0;
 // }

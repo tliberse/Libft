@@ -6,24 +6,12 @@
 /*   By: tliberse <tliberse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 12:20:44 by tliberse          #+#    #+#             */
-/*   Updated: 2024/08/27 15:22:29 by tliberse         ###   ########.fr       */
+/*   Updated: 2024/10/23 15:13:52 by tliberse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
-
-int	ft_strlen(char *str)
-{
-	int	len;
-
-	len = 0;
-	while (str[len])
-	{
-		len++;
-	}
-	return (len);
-}
 
 void	ft_strjoin2(char *result, int size, char *sep, char **strs)
 {

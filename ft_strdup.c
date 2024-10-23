@@ -6,12 +6,11 @@
 /*   By: tliberse <tliberse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 14:05:52 by tliberse          #+#    #+#             */
-/*   Updated: 2024/08/26 18:04:03 by tliberse         ###   ########.fr       */
+/*   Updated: 2024/10/23 16:24:16 by tliberse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
 char	*ft_strdup(char *src)
 {

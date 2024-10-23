@@ -1,39 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tliberse <tliberse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/18 14:59:44 by tliberse          #+#    #+#             */
-/*   Updated: 2024/10/23 16:34:34 by tliberse         ###   ########.fr       */
+/*   Created: 2024/10/23 15:09:48 by tliberse          #+#    #+#             */
+/*   Updated: 2024/10/23 16:34:16 by tliberse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	char	*result;
+	char	*lastoc;
 	int		i;
 
-	result = (char *)s;
+	lastoc = NULL;
 	i = 0;
 	if (c == '\0')
-		return (&result[ft_strlen((char *) s)]);
-	while (result[i])
+		return ((char *)&s[ft_strlen((char *)s)]);
+	while (s[i])
 	{
-		if (result[i] == (char)c)
-			return (&result[i]);
+		if (s[i] == (char)c)
+			lastoc = (char *)&s[i];
 		i++;
 	}
-	return (NULL);
+	return (lastoc);
 }
 
 // int main(void)
 // {
-// 	const char *str = "Coucou comment tu vas?";
-//     printf("-%s-\n", strchr(str, '\0'));
-//     printf("-%s-\n", ft_strchr(str, '\0'));
-//     return 0;
+// 	printf ("-%s-\n", strrchr("le code c'est pas evident", '\0'));
+// 	printf ("-%s-\n", ft_strrchr("le code c'est pas evident", '\0'));
+// 	return (0);
 // }

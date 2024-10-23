@@ -6,7 +6,7 @@
 /*   By: tliberse <tliberse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 13:57:52 by tliberse          #+#    #+#             */
-/*   Updated: 2024/10/18 15:38:18 by tliberse         ###   ########.fr       */
+/*   Updated: 2024/10/23 15:51:47 by tliberse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned char	*result;
+	char	*result;
 
-	result = (unsigned char *)s;
+	result = (char *)s;
 	if (c == '\0')
 		return ((void *)&result[ft_strlen((char *) s)]);
 	while (n > 0)
 	{
-		if (*result == (unsigned char)c)
+		if (*result == (char)c)
 			return ((void *)result);
 		result++;
 		n--;
@@ -31,16 +31,9 @@ void	*ft_memchr(const void *s, int c, size_t n)
 
 // int main(void)
 // {
-//     const char s[] = "Hello, world!";
-//     char c = '\0';
-//     char *result;
+// 	const char *str = "Coucou comment tu vas?";
 
-//     result = ft_memchr(s, c, strlen(s));
-
-//     if (result != NULL)
-//         printf("Char '%c' à la position: %ld\n", c, result - s);
-//     else
-//         printf("Char '%c' non trouvé.\n", c);
-
+//     printf("-%s-\n", (char *)memchr(str, 'e', 15));
+//     printf("-%s-\n", (char *)ft_memchr(str, 'e', 15));
 //     return 0;
 // }

@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tliberse <tliberse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/18 14:59:44 by tliberse          #+#    #+#             */
-/*   Updated: 2024/10/23 16:34:34 by tliberse         ###   ########.fr       */
+/*   Created: 2024/10/23 16:26:35 by tliberse          #+#    #+#             */
+/*   Updated: 2024/10/23 17:09:29 by tliberse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	char	*result;
-	int		i;
+	size_t	i;
+	size_t	j;
 
-	result = (char *)s;
 	i = 0;
-	if (c == '\0')
-		return (&result[ft_strlen((char *) s)]);
-	while (result[i])
+	j = 0;
+	if (little[i] == '\0')
+		return ((char *)big);
+	while (big[i] && i < len)
 	{
-		if (result[i] == (char)c)
-			return (&result[i]);
+		while (big[i + j] == little[j] && big[i + j]
+			&& little[j] && i + j < len)
+		{
+			j++;
+		}
+		if (little[j] == '\0')
+			return ((char *)(big + i));
 		i++;
 	}
 	return (NULL);
@@ -32,8 +37,8 @@ char	*ft_strchr(const char *s, int c)
 
 // int main(void)
 // {
-// 	const char *str = "Coucou comment tu vas?";
-//     printf("-%s-\n", strchr(str, '\0'));
-//     printf("-%s-\n", ft_strchr(str, '\0'));
-//     return 0;
+// 	char *big = "j'ai envie de partir";
+// 	char *little = "envie";
+// 	printf ("%s\n", ft_strnstr(big, little, 10));
+// 	printf ("%s\n", strnstr(big, little, 10));
 // }

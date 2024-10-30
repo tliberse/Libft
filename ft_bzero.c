@@ -6,7 +6,7 @@
 /*   By: tliberse <tliberse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 14:22:41 by tliberse          #+#    #+#             */
-/*   Updated: 2024/10/16 14:52:09 by tliberse         ###   ########.fr       */
+/*   Updated: 2024/10/28 15:17:58 by tliberse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,13 @@ void	ft_bzero(void *s, size_t n)
 	}
 }
 
-// int main() 
+// int	main(void)
 // {
-//     char s[] = "Hello, World!";
-//     printf("Before bzero: %s\n", s);
-//     ft_bzero(s, 5);
-//     printf("After bzero: %s\n", s);
-//     return 0;
+// 	char	str[] = "123456789";
+
+// 	printf("Avant ft_bzero: %s\n", str);
+// 	ft_bzero(str, 5);
+// 	printf("Après ft_bzero: %s\n", str);
+
+// 	return (0);
 // }

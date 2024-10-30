@@ -1,28 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_main.c                                   :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tliberse <tliberse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/18 14:52:02 by tliberse          #+#    #+#             */
-/*   Updated: 2024/10/18 14:52:04 by tliberse         ###   ########.fr       */
+/*   Created: 2024/10/30 17:23:14 by tliberse          #+#    #+#             */
+/*   Updated: 2024/10/30 17:31:18 by tliberse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putstr(char *str)
+#include "libft.h"
+
+
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (s[i])
 	{
-		write (1, &str[i], 1);
+		f(i, &s[i]);
 		i++;
 	}
 }
 
-//  int main()
-//  {
-//  	ft_putstr("Hello World!");
-//  }
+// static void	ft_uppercase(unsigned int i, char *c)
+// {
+// 	(void)i;
+// 	if (*c >= 'a' && *c <= 'z')
+// 		*c -= 32;
+// }
+
+// int main()
+// {
+// 	char str[] = "hello w0rld";
+// 	printf("%s\n", str);
+// 	ft_striteri(str, ft_uppercase);
+// 	printf("%s\n", str);
+// 	return (0);
+// }

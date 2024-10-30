@@ -1,43 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tliberse <tliberse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/26 14:05:52 by tliberse          #+#    #+#             */
-/*   Updated: 2024/10/30 16:40:12 by tliberse         ###   ########.fr       */
+/*   Created: 2024/10/18 14:51:51 by tliberse          #+#    #+#             */
+/*   Updated: 2024/10/28 16:06:56 by tliberse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(char *src)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int		len;
-	int		i;
-	char	*dup;
-
-	len = ft_strlen(src);
-	dup = malloc((len + 1) * sizeof(char));
-	if (dup == NULL)
-		return (NULL);
-	i = 0;
-	while (src[i])
+	if (n == -2147483648)
+		ft_putstr_fd("-2147483648", fd);
+	else if (n < 0)
 	{
-		dup[i] = src[i];
-		i++;
+		ft_putchar_fd('-', fd);
+		ft_putnbr_fd(-n, fd);
 	}
-	dup[i] = '\0';
-	return (dup);
+	else if (n > 9)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putchar_fd(n % 10 + '0', fd);
+	}
+	else
+		ft_putchar_fd(n + '0', fd);
 }
 
-// int main(void)
+// int main (void)
 // {
-// 	char *dup;
-// 	char src[50] = "abcdefgh";
-// 	dup = ft_strdup(src);
-// 	printf("%s", dup);
-// 	free(dup);
-// 	return (0);
+// 	ft_putnbr_fd(456789, 1);
 // }

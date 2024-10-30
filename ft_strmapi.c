@@ -1,48 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tliberse <tliberse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/27 12:20:44 by tliberse          #+#    #+#             */
-/*   Updated: 2024/10/30 16:29:19 by tliberse         ###   ########.fr       */
+/*   Created: 2024/10/30 17:00:05 by tliberse          #+#    #+#             */
+/*   Updated: 2024/10/30 17:30:35 by tliberse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*str;
+	int		len;
 	int		i;
-	int		j;
+	char	*str;
 
-	str = malloc (sizeof(char) * (ft_strlen((char *)s1)
-				+ ft_strlen((char *)s2) + 1));
+	len = 0;
+	i = 0;
+	if (s == NULL || f == NULL)
+		return (NULL);
+	len = ft_strlen((char *)s);
+	str = malloc(sizeof(char) * (len + 1));
 	if (str == NULL)
 		return (NULL);
-	i = 0;
-	j = 0;
-	while (s1[i])
+	while (s[i])
 	{
-		str[j++] = s1[i++];
+		str[i] = f(i, s[i]);
+		i++;
 	}
-	i = 0;
-	while (s2[i])
-	{
-		str[j++] = s2[i++];
-	}
-	str[j] = '\0';
+	str[i] = '\0';
 	return (str);
 }
 
-// int main(void)
+// static char	ft_uppercase(unsigned int i, char c)
 // {
-// 	char s1[] = "c'est de ";
-// 	char s2[] = "la merde";
-// 	char *result = ft_strjoin(s1, s2);
+// 	(void)i;
+// 	if (c >= 'a' && c <= 'z')
+// 		c -= 32;
+// 	return (c);
+// }
+
+// int main()
+// {
+// 	char str[] = "correct1on";
+// 	char *result = ft_strmapi(str, &ft_uppercase);
+// 	printf("%s\n", str);
 // 	printf("%s\n", result);
-// 	free(result);
 // 	return (0);
 // }

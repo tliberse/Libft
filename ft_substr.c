@@ -1,48 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tliberse <tliberse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/27 12:20:44 by tliberse          #+#    #+#             */
-/*   Updated: 2024/10/30 16:29:19 by tliberse         ###   ########.fr       */
+/*   Created: 2024/10/30 16:32:08 by tliberse          #+#    #+#             */
+/*   Updated: 2024/10/30 16:40:49 by tliberse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*str;
-	int		i;
-	int		j;
+	size_t		i;
+	char		*str;
 
-	str = malloc (sizeof(char) * (ft_strlen((char *)s1)
-				+ ft_strlen((char *)s2) + 1));
+	if ((int)start >= ft_strlen((char *)s))
+		return (ft_strdup(""));
+	if (len > ft_strlen((char *)s) - start)
+		len = ft_strlen((char *)s) - start;
+	str = malloc(sizeof(char) * (len + 1));
 	if (str == NULL)
 		return (NULL);
 	i = 0;
-	j = 0;
-	while (s1[i])
+	while (i < len && s[start + i])
 	{
-		str[j++] = s1[i++];
+		str[i] = s[start + i];
+		i++;
 	}
-	i = 0;
-	while (s2[i])
-	{
-		str[j++] = s2[i++];
-	}
-	str[j] = '\0';
+	str[i] = '\0';
 	return (str);
 }
 
-// int main(void)
+// int	main()
 // {
-// 	char s1[] = "c'est de ";
-// 	char s2[] = "la merde";
-// 	char *result = ft_strjoin(s1, s2);
+// 	char	str[] = "salut je m'apelle thibaud";
+// 	char *result =  ft_substr(str, 6, 50);
 // 	printf("%s\n", result);
-// 	free(result);
+// 	free (result);
 // 	return (0);
 // }

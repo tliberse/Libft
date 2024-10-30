@@ -1,43 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tliberse <tliberse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/26 14:05:52 by tliberse          #+#    #+#             */
-/*   Updated: 2024/10/30 16:40:12 by tliberse         ###   ########.fr       */
+/*   Created: 2024/10/28 14:26:49 by tliberse          #+#    #+#             */
+/*   Updated: 2024/10/28 15:21:38 by tliberse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(char *src)
+void	*ft_calloc(size_t num, size_t size)
 {
-	int		len;
-	int		i;
-	char	*dup;
+	void	*p;
 
-	len = ft_strlen(src);
-	dup = malloc((len + 1) * sizeof(char));
-	if (dup == NULL)
+	p = malloc((num + 1) * sizeof(void));
+	if (p == NULL)
 		return (NULL);
-	i = 0;
-	while (src[i])
-	{
-		dup[i] = src[i];
-		i++;
-	}
-	dup[i] = '\0';
-	return (dup);
+	ft_bzero(p, num * size);
+	return (p);
 }
 
 // int main(void)
 // {
-// 	char *dup;
-// 	char src[50] = "abcdefgh";
-// 	dup = ft_strdup(src);
-// 	printf("%s", dup);
-// 	free(dup);
-// 	return (0);
+// 	int *arr = (int *)ft_calloc(3, sizeof(int));
+//     if (!arr)
+//         return (1);
+
+//     printf("%d %d %d %d %d\n", arr[0], arr[1], arr[2], arr[3], arr[4]);
+
+//     free(arr);
+//     return 0;
 // }

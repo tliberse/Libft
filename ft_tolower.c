@@ -6,29 +6,22 @@
 /*   By: tliberse <tliberse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 12:03:30 by tliberse          #+#    #+#             */
-/*   Updated: 2024/10/15 15:46:54 by tliberse         ###   ########.fr       */
+/*   Updated: 2024/11/04 17:47:26 by tliberse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_tolower(char *str)
+int	ft_tolower(int c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] >= 'A' && str[i] <= 'Z')
-			str[i] += 32;
-		i++;
-	}
-	return (str);
+	if (c >= 'A' && c <= 'Z')
+		c += 32;
+	return (c);
 }
 
 // int main(void)
 // {
-// 	char str[] = "SALUT";
-// 	printf ("%s\n", ft_tolower(str));
+// 	printf ("%d\n", ft_tolower('F'));
+// 	printf ("%d\n", 'f');
 // 	return (0);
 // }

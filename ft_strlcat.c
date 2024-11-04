@@ -6,22 +6,22 @@
 /*   By: tliberse <tliberse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 16:52:08 by tliberse          #+#    #+#             */
-/*   Updated: 2024/10/18 13:51:54 by tliberse         ###   ########.fr       */
+/*   Updated: 2024/11/04 15:28:50 by tliberse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	unsigned int	i;
-	unsigned int	j;
-	unsigned int	dlen;
-	unsigned int	slen;
+	size_t	i;
+	size_t	j;
+	size_t	dlen;
+	size_t	slen;
 
 	i = 0;
 	j = 0;
-	while (dest[j] != '\0')
+	while (dst[j] != '\0')
 	{
 		j++;
 	}
@@ -31,18 +31,18 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 		return (ft_strlen(src) + size);
 	while (src [i] != '\0' && i < (size - dlen - 1))
 	{
-		dest[j] = src[i];
+		dst[j] = src[i];
 		i++;
 		j++;
 	}
-	dest[j] = '\0';
+	dst[j] = '\0';
 	return (dlen + slen);
 }
 
 // int main (void)
 // {
-// 	char src[] = "Born to code";
-//     	char dest [] = "1337 42";
-//     printf("%i \n", ft_strlcat(dest, src, 20));
+// 	char src[] = "code";
+//     char dest [] = "1337 42 ";
+//     printf("len = %zu \n", ft_strlcat(dest, src, 20));
 //     printf("%s \n", dest);
 // }	

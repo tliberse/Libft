@@ -6,13 +6,13 @@
 /*   By: tliberse <tliberse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 11:27:44 by tliberse          #+#    #+#             */
-/*   Updated: 2024/10/15 15:39:35 by tliberse         ###   ########.fr       */
+/*   Updated: 2024/11/04 16:05:55 by tliberse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isprint(char c)
+int	ft_isprint(int c)
 {
 	if (c > 31 && c < 127)
 		return (1);

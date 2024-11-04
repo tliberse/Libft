@@ -6,7 +6,7 @@
 /*   By: tliberse <tliberse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 16:32:08 by tliberse          #+#    #+#             */
-/*   Updated: 2024/10/30 16:40:49 by tliberse         ###   ########.fr       */
+/*   Updated: 2024/11/04 15:38:32 by tliberse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t		i;
 	char		*str;
 
-	if ((int)start >= ft_strlen((char *)s))
+	if ((size_t)start >= ft_strlen((char *)s))
 		return (ft_strdup(""));
 	if (len > ft_strlen((char *)s) - start)
 		len = ft_strlen((char *)s) - start;

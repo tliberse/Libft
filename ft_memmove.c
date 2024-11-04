@@ -6,7 +6,7 @@
 /*   By: tliberse <tliberse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 15:12:08 by tliberse          #+#    #+#             */
-/*   Updated: 2024/10/16 16:04:40 by tliberse         ###   ########.fr       */
+/*   Updated: 2024/11/04 16:54:02 by tliberse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,22 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	size_t	i;
 
 	i = 0;
-	if (src > dest)
+	if ((char *)dest == NULL && (const char *)src == NULL)
+		return (NULL);
+	if ((const char *)src > (char *)dest)
 	{
-		while (n > 0)
+		while (i < n)
 		{
-			((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
-			n--;
+			((char *)dest)[i] = ((const char *)src)[i];
 			i++;
 		}
 	}
 	else
 	{
-		while (i < n)
+		while (n > 0)
 		{
-			((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
-			i++;
+			((char *)dest)[n - 1] = ((const char *)src)[n - 1];
+			n--;
 		}
 	}
 	return (dest);
@@ -40,9 +41,9 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 // int main(void) 
 // {
 //     char src[] = "Hello, World!";
-// 	char dest[] = "111111111";
+// 	char dest[] = "111111111111";
 //     printf("Before memmove: %s\n", src);
-// 	ft_memmove((void *)dest, (void *)src, 5);
+// 	ft_memmove((void *)dest, (void *)src, 7);
 //     printf("After memmove: %s\n", dest);
 //     return 0;
 // }

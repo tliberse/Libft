@@ -6,18 +6,18 @@
 /*   By: tliberse <tliberse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 17:54:40 by tliberse          #+#    #+#             */
-/*   Updated: 2024/10/30 16:20:40 by tliberse         ###   ########.fr       */
+/*   Updated: 2024/11/04 15:30:52 by tliberse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(char *str)
+size_t	ft_strlen(const char *s)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (str[i])
+	while (s[i])
 		i++;
 	return (i);
 }
@@ -25,6 +25,6 @@ int	ft_strlen(char *str)
 // int main(void)
 // {
 // 	char *str = "bonjour";
-// 	printf("%s, %d\n", str, ft_strlen(str));
+// 	printf("%s\nlen = %zu\n", str, ft_strlen(str));
 // 	return (0);
 // }

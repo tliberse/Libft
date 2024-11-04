@@ -6,31 +6,36 @@
 /*   By: tliberse <tliberse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 12:11:04 by tliberse          #+#    #+#             */
-/*   Updated: 2024/10/23 16:34:21 by tliberse         ###   ########.fr       */
+/*   Updated: 2024/11/04 17:58:59 by tliberse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	unsigned int	i;
+	size_t	i;
 
 	i = 0;
-	while ((s1[i] || s2[i]) && (i < n))
+	if (n == 0)
+		return (0);
+	while (s1[i] && s2[i] && (i < n - 1))
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
+		if ((unsigned char)s1[i] != (unsigned char)s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 		i++;
 	}
-	return (0);
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
 
 // int	main(void)
 // {
 // 	char	src[] = "bonjour";
 // 	char	dest[] = "bonjo";
-// 	printf ("%d\n", ft_strncmp(src, dest, 10));
-// 	printf ("%d\n", strncmp(src, dest, 10));
+// 	printf ("ascii = %d\n", ft_strncmp(src, dest, 10));
+
+// 	char	src1[] = "bonjour";
+// 	char	dest1[] = "bonjo";
+// 	printf ("ascii = %d\n", strncmp(src1, dest1, 10));
 // 	return (0);
 // }

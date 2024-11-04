@@ -6,26 +6,26 @@
 /*   By: tliberse <tliberse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 14:05:52 by tliberse          #+#    #+#             */
-/*   Updated: 2024/10/30 16:40:12 by tliberse         ###   ########.fr       */
+/*   Updated: 2024/11/04 15:25:27 by tliberse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(char *src)
+char	*ft_strdup(const char *s)
 {
 	int		len;
 	int		i;
 	char	*dup;
 
-	len = ft_strlen(src);
+	len = ft_strlen(s);
 	dup = malloc((len + 1) * sizeof(char));
 	if (dup == NULL)
 		return (NULL);
 	i = 0;
-	while (src[i])
+	while (s[i])
 	{
-		dup[i] = src[i];
+		dup[i] = s[i];
 		i++;
 	}
 	dup[i] = '\0';
@@ -37,7 +37,7 @@ char	*ft_strdup(char *src)
 // 	char *dup;
 // 	char src[50] = "abcdefgh";
 // 	dup = ft_strdup(src);
-// 	printf("%s", dup);
+// 	printf("%s\n", dup);
 // 	free(dup);
 // 	return (0);
 // }

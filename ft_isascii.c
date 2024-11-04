@@ -6,15 +6,15 @@
 /*   By: tliberse <tliberse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 11:27:44 by tliberse          #+#    #+#             */
-/*   Updated: 2024/10/15 15:37:38 by tliberse         ###   ########.fr       */
+/*   Updated: 2024/11/04 16:07:46 by tliberse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isascii(char c)
+int	ft_isascii(int c)
 {
-	if (c > 0 && c < 127)
+	if (c >= 0 && c <= 127)
 		return (1);
 	return (0);
 }

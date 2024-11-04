@@ -6,39 +6,40 @@
 /*   By: tliberse <tliberse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 19:20:52 by tliberse          #+#    #+#             */
-/*   Updated: 2024/10/18 13:54:32 by tliberse         ###   ########.fr       */
+/*   Updated: 2024/11/04 17:34:12 by tliberse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+size_t	ft_strlcpy(char *dst, char *src, size_t size)
 {
-	unsigned int	i;
-	unsigned int	len;
+	size_t	i;
+	size_t	len;
 
 	i = 0;
-	len = 0;
+	len = ft_strlen(src);
 	if (size == 0)
 		return (len);
-	while (src[len])
-	{
-		len++;
-	}
 	while (src[i] && i < (size -1))
 	{
-		dest[i] = src[i];
+		dst[i] = src[i];
 		i++;
 	}
-	dest[i] = '\0';
+	dst[i] = '\0';
 	return (len);
 }
 
 // int main(void)
 // {
-// 	char *src = "j'aimerai bien partir";
-// 	char dest[100];
-// 	unsigned int len = ft_strlcpy(dest, src, 30);
-// 	printf ("%s\n%s\n%u\n", dest, src, len);
+// 	char *src = "hello";
+// 	char dst[2];
+// 	size_t len = ft_strlcpy(dst, src, 3);
+// 	printf ("%s\n%s\nlen = %zu\n", dst, src, len);
+
+// 	char *src1 = "hello";
+// 	char dst1[2];
+// 	printf ("%s\n%s\nlen = %zu\n", dst1, src1, strlcpy(dst1, src1, 3));
+
 // 	return (0);
 // }

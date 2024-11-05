@@ -6,31 +6,31 @@
 /*   By: tliberse <tliberse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 13:08:48 by tliberse          #+#    #+#             */
-/*   Updated: 2024/10/30 15:55:33 by tliberse         ###   ########.fr       */
+/*   Updated: 2024/11/05 16:24:15 by tliberse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_count(const char *phrase, char c)
+static size_t	ft_wcount(const char *str, char c)
 {
-	int	i;
-	int	wcount;
+	size_t	i;
+	size_t	wcount;
 
 	i = 0;
 	wcount = 0;
-	while (phrase[i] && (phrase[i] == c))
+	while (str[i] && str[i] == c)
 	{
 		i++;
 	}
-	while (phrase[i])
+	while (str[i])
 	{
-		while (phrase[i] && (phrase[i] != c))
+		while (str[i] && (str[i] != c))
 		{
 			i++;
 		}
 		wcount++;
-		while (phrase[i] && (phrase[i] == c))
+		while (str[i] && (str[i] == c))
 		{
 			i++;
 		}
@@ -38,65 +38,64 @@ static int	ft_count(const char *phrase, char c)
 	return (wcount);
 }
 
-static char	*ft_strncpyy(char *dest, const char *src, unsigned int n)
+static char	*ft_nextword(char const **s, char c)
 {
-	unsigned int	i;
+	char	*word;
+	size_t	len;
 
-	i = 0;
-	while (src[i] != '\0' && i < n)
+	while (**s == c)
 	{
-		dest[i] = src[i];
-		i++;
+		(*s)++;
 	}
-	while (i < n)
+	len = 0;
+	while ((*s)[len] && (*s)[len] != c)
 	{
-		dest[i] = '\0';
-		i++;
+		len++;
 	}
-	return (dest);
-}
-
-static void	ft_split2(const char *s, char c, char **gtab)
-{
-	int	i;
-	int	j;
-	int	start;
-
-	i = 0;
-	j = 0;
-	while (s[i])
-	{
-		while (s[i] && s[i] == c)
-			i++;
-		start = i;
-		while (s[i] && s[i] != c)
-			i++;
-		if (start < i)
-		{
-			gtab[j] = malloc (sizeof (char) * ((i - start) + 1));
-			ft_strncpyy (gtab[j++], &s[start], (i - start));
-		}
-	}
-	gtab[j] = NULL;
-}
-
-char	**ft_split(const char *s, char c)
-{
-	int		wcount;
-	char	**gtab;
-
-	wcount = ft_count (s, c);
-	gtab = malloc (sizeof(char *) * (wcount + 1));
-	if (gtab == NULL)
+	word = ft_substr(*s, 0, len);
+	if (word == NULL)
 		return (NULL);
-	ft_split2(s, c, gtab);
-	return (gtab);
+	(*s) += len;
+	return (word);
+}
+
+static void	ft_freesplit(char **str, int i)
+{
+	while (i-- > 0)
+		free(str[i]);
+	free(str);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**split;
+	size_t	wcount;
+	size_t	i;
+
+	if (s == 0)
+		return (NULL);
+	wcount = ft_wcount(s, c);
+	split = (char **)ft_calloc(wcount + 1, sizeof(char *));
+	if (split == NULL)
+		return (NULL);
+	i = 0;
+	while (i < wcount)
+	{
+		split[i] = ft_nextword(&s, c);
+		if (split[i] == NULL)
+		{
+			ft_freesplit(split, i);
+			return (NULL);
+		}
+		i++;
+	}
+	return (split);
 }
 
 // int main(void)
 // {
 // 	int  i = 0;
-// 	char const *str = "   j'ai | pas | faim";
+// 	char const *str = " ||  j'ai | pas | faim";
 // 	char **gtab = ft_split(str, '|');
 // 	while(gtab[i])
 // 	{	
@@ -110,5 +109,4 @@ char	**ft_split(const char *s, char c)
 // 		i++;
 // 	}
 // 	free (gtab);
-// 	//printf ("%d", ft_count(str));
 // }

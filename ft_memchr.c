@@ -6,7 +6,7 @@
 /*   By: tliberse <tliberse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 13:57:52 by tliberse          #+#    #+#             */
-/*   Updated: 2024/11/04 18:33:13 by tliberse         ###   ########.fr       */
+/*   Updated: 2024/11/05 14:55:33 by tliberse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	unsigned char	*result;
 
 	result = (unsigned char *)s;
-	if (c == '\0')
-		return ((void *)&result[ft_strlen((char *) s)]);
 	while (n > 0)
 	{
 		if (*result == (unsigned char)c)
@@ -26,14 +24,16 @@ void	*ft_memchr(const void *s, int c, size_t n)
 		result++;
 		n--;
 	}
+	if (c == '\0' && n > 0)
+		return ((void *)&result[ft_strlen((char *) s)]);
 	return (NULL);
 }
 
 // int main(void)
 // {
-// 	const char *str = "bonjour";
+// 		const char *s = "bonjour";
 
-//     printf("-%s-\n", (char *)memchr(str, 'j', 7));
-//     printf("-%s-\n", (char *)ft_memchr(str, 'j', 7));
-//     return 0;
+// 		printf("-%s-\n", (char *)memchr(s, 0, 70));
+//     	printf("-%s-\n", (char *)ft_memchr(s, 0, 70));
+//     	return 0;
 // }

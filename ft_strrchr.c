@@ -6,7 +6,7 @@
 /*   By: tliberse <tliberse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:09:48 by tliberse          #+#    #+#             */
-/*   Updated: 2024/10/23 16:34:16 by tliberse         ###   ########.fr       */
+/*   Updated: 2024/11/05 16:31:57 by tliberse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char	*lastoc;
-	int		i;
+	int	i;
+	int	j;
 
-	lastoc = NULL;
-	i = 0;
-	if (c == '\0')
-		return ((char *)&s[ft_strlen((char *)s)]);
-	while (s[i])
+	j = 0;
+	while (s[j])
+		j++;
+	i = j;
+	while (i >= 0)
 	{
 		if (s[i] == (char)c)
-			lastoc = (char *)&s[i];
-		i++;
+			return ((char *)s + i);
+		i--;
 	}
-	return (lastoc);
+	return (NULL);
 }
 
 // int main(void)

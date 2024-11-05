@@ -6,7 +6,7 @@
 /*   By: tliberse <tliberse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 14:59:44 by tliberse          #+#    #+#             */
-/*   Updated: 2024/10/23 16:34:34 by tliberse         ###   ########.fr       */
+/*   Updated: 2024/11/05 16:28:29 by tliberse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	char	*result;
 	int		i;
+	char	ya;
 
-	result = (char *)s;
+	ya = (char)c;
 	i = 0;
-	if (c == '\0')
-		return (&result[ft_strlen((char *) s)]);
-	while (result[i])
+	while (*s)
 	{
-		if (result[i] == (char)c)
-			return (&result[i]);
-		i++;
+		if (*s == ya)
+			return ((char *)s);
+		s++;
 	}
-	return (NULL);
+	if (*s == ya)
+		return ((char *)s);
+	return (0);
 }
 
 // int main(void)

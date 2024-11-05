@@ -6,7 +6,7 @@
 /*   By: tliberse <tliberse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 16:43:16 by tliberse          #+#    #+#             */
-/*   Updated: 2024/10/30 16:56:32 by tliberse         ###   ########.fr       */
+/*   Updated: 2024/11/05 15:36:34 by tliberse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,20 @@
 
 char	*ft_strtrim(const char *s1, const char *set)
 {
-	int		len;
 	int		start;
 	int		end;
-	char	*str;
+	char	*trim_str;
 
-	len = ft_strlen((char *)s1);
-	if (len == 0)
-		return (ft_strdup(""));
-	start = 0;
-	end = len - 1;
-	while (ft_strchr(set, s1[start]) && start <= end)
-		start++;
-	while (ft_strchr(set, s1[end]) && end >= start)
-		end--;
-	str = malloc(sizeof(char) * (end - start + 1));
-	if (str == NULL)
+	if (s1 == 0 || set == 0)
 		return (NULL);
-	ft_memcpy(str, s1 + start, end - start + 1);
-	str[end - start + 1] = '\0';
-	return (str);
+	start = 0;
+	while (s1[start] && ft_strchr(set, s1[start]))
+		start++;
+	end = ft_strlen(s1);
+	while (end > start && ft_strchr(set, s1[end - 1]))
+		end--;
+	trim_str = ft_substr(s1, start, end - start);
+	return (trim_str);
 }
 
 // int		main()
